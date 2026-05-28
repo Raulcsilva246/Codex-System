@@ -90,6 +90,7 @@ async function getWeather() {
             chalk.red('Weather service offline.\n')
         );
     }
+
 }
 
 function systemInfo() {
@@ -233,6 +234,7 @@ async function menu() {
                 'PROGRAM MODE',
                 'STUDY MODE',
                 'TERMINAL MODE',
+                'WEATHER',
                 'EXIT'
             ]
         }
@@ -284,6 +286,24 @@ async function menu() {
             terminalCommands();
 
             break;
+        
+        case 'WEATHER':
+
+            console.clear();
+
+            await typeText(
+                'Interactive WEATHER enabled.\n',
+                chalk.green
+            );
+
+
+            await getWeather();
+
+
+            menu()
+
+
+            break;
 
         case 'EXIT':
 
@@ -297,7 +317,7 @@ async function boot() {
 
     console.log(
         chalk.cyan(
-            figlet.textSync('NEXUS CORE')
+            figlet.textSync('CODEX SYSTEM')
         )
     );
 
@@ -313,7 +333,6 @@ async function boot() {
 
     await progressBar();
 
-    await getWeather();
 
     await typeText(
         'WELCOME BACK, RAUL.\n',
